@@ -1,0 +1,40 @@
+{
+  "name": "ReactNativeMobxFrame",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "bundle-android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res/",
+    "bundle-ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js  --platform ios --dev false --bundle-output ./ios/bundle/index.ios.jsbundle --assets-dest ./ios/bundle",
+    "ios-xsmax": "react-native run-ios --simulator 'iPhone XS Max'",
+    "ios-x": "react-native run-ios --simulator 'iPhone X'",
+    "ios-6": "react-native run-ios --simulator 'iPhone 6s'",
+    "android": "react-native run-android"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@react-native-community/slider": "^1.0.4",
+    "@react-native-community/viewpager": "^1.1.5",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
+    "react": "16.8.3",
+    "react-native": "0.59.4",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-iphone-x-helper": "^1.2.0",
+    "react-native-reanimated": "^1.0.0",
+    "react-navigation": "^3.7.1",
+    "teaset": "^0.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
