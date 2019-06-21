@@ -13,6 +13,8 @@ import Navigator from './src/navigation';
 import { Toast } from 'teaset';
 import { Provider } from 'mobx-react';
 import store from './src/mobx/index';
+import NavigationService from './src/commons/components/navigationService';
+
 
 export default class App extends Component {
 
@@ -21,7 +23,7 @@ export default class App extends Component {
   }
 
   componentUnWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid);
+    BackHandler.removeEventListener('hardwareBackPress', this._onBackAndroid);
   }
 
 
@@ -30,7 +32,6 @@ export default class App extends Component {
     if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
       //最近2秒内按过back键，可以退出应用。
       BackHandler.exitApp();
-      return false;
     }
 
     this.lastBackPressed = Date.now();
@@ -41,12 +42,25 @@ export default class App extends Component {
   }
 
 
+  _getRef(ref) {
+    NavigationService.setNavigator(ref);
+  }
 
 
   render() {
     return (
       <Provider rootStore={store}>
-        <Navigator />
+        <Navigator
+          ref={(ref) => this._getRef(ref)}
+          onNavigationStateChange={(prevState, newState, action) => {
+            console.log(newState);
+            if (newState.routes[1].routes.length > 1) {
+              BackHandler.removeEventListener('hardwareBackPress', this._onBackAndroid);
+            } else {
+              BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid);
+            }
+          }}
+        />
       </Provider>
 
     );

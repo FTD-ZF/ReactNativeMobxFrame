@@ -10,7 +10,7 @@ class TestStore {
 
     @action
     getListData() {
-        HttpUtils.getRequest('https://api.apiopen.top/getSongPoetry?page=1&count=10', '').then(response => {
+        HttpUtils.getRequest('', '').then(response => {
             if (response.code == 200) {
                 console.log(JSON.stringify(response.result));
                 this.listdata = JSON.stringify(response.result);

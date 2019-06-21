@@ -13,14 +13,14 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import { AppColors } from '../commons/styles';
-import NavigationService from '../commons/components/navigationService';
+import { AppColors } from '../../../commons/styles/index';
+import NavigationService from '../../../commons/components/navigationService';
 
-export default class Index extends Component {
+export default class OnePage extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
 
-            headerTitle: navigation.state.params.headername,
+            headerTitle: '第一个页面',
             // headerRight: (<Text>www</Text>),
             // headerLeft: <Text>返回</Text>
         }
@@ -39,13 +39,8 @@ export default class Index extends Component {
 
     }
 
-    _goBack() {
-        this.props.navigation.state.params.callback('你好！！！');
-        this.props.navigation.goBack();
-    }
-
     _toNextPage() {
-        NavigationService.navigate('OnePageView');
+        NavigationService.navigate('TwoPageView');
     }
 
     render() {
@@ -56,27 +51,15 @@ export default class Index extends Component {
                         backgroundColor: AppColors.themecolor,
                         margin: 20,
                         padding: 10,
-                    }} onPress={() => this._goBack()}>
-                    <Text style={{ color: 'white', textAlign: 'center' }}>
-                        点击返回通知刷新
-                </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={{
-                        backgroundColor: AppColors.themecolor,
-                        margin: 20,
-                        padding: 10,
-                        marginTop: 50,
                     }} onPress={() => this._toNextPage()}>
                     <Text style={{ color: 'white', textAlign: 'center' }}>
-                        点击进入下个页面
+                        点击下一个页面
                 </Text>
                 </TouchableOpacity>
 
             </View>
         );
     }
-
 
 }
 
@@ -87,5 +70,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-  
+
 });

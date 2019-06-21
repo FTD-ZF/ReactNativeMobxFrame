@@ -7,11 +7,12 @@ import {
     createBottomTabNavigator,
     createAppContainer,
     getActiveChildNavigationOptions,
+    createSwitchNavigator,
     // createMaterialTopTabNavigator,
 } from 'react-navigation';
 import { headerOptions, RouteConfigs, } from './commons/components/navConfig';
 
-import { HomeTab, MineTab, DetailsView, CenterView } from './root';
+import { HomeTab, MineTab, DetailsView, CenterView, LoginView ,OnePageView,TwoPageView} from './root';
 import { AppColors, AppStyles } from './commons/styles/index';
 import CustomTabComponent from './commons/components/Tab';
 const TabBarText = {
@@ -104,7 +105,29 @@ const stackNavigators = createStackNavigator(
                     },
                 })
             },
-        }
+        },
+        OnePageView: {
+            screen: OnePageView,
+            navigationOptions: props => {
+                return headerOptions({
+                    ...props,
+                    ...{
+                        back: true,
+                    },
+                })
+            },
+        },
+        TwoPageView: {
+            screen: TwoPageView,
+            navigationOptions: props => {
+                return headerOptions({
+                    ...props,
+                    ...{
+                        back: true,
+                    },
+                })
+            },
+        },
     },
     {
         //         // defaultNavigationOptions: ({ navigation }) => {
@@ -150,7 +173,18 @@ const stackNavigators = createStackNavigator(
 );
 
 
-const AppContainer = createAppContainer(stackNavigators);
+const SwitchNavigator = createSwitchNavigator(
+    {
+        Login: LoginView,
+        App: stackNavigators,
+    },
+    {
+        initialRouteName: 'Login',
+    }
+);
+
+
+const AppContainer = createAppContainer(SwitchNavigator);
 
 
 export default AppContainer;

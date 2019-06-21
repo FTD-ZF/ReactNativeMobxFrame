@@ -11,18 +11,20 @@ import {
     Text,
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    BackHandler,
 } from 'react-native';
-import { AppColors } from '../commons/styles';
-import NavigationService from '../commons/components/navigationService';
+import { AppColors } from '../../../commons/styles/index';
 
-export default class Index extends Component {
+export default class TwoPage extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
 
-            headerTitle: navigation.state.params.headername,
+            headerTitle: '第二个页面',
             // headerRight: (<Text>www</Text>),
-            // headerLeft: <Text>返回</Text>
+            headerLeft: (<TouchableOpacity onPress={() => navigation.state.params.goBack()}>
+                <Image source={require('../../../assets/imgs/arrow.png')} style={{ width: 30, height: 30 }} />
+            </TouchableOpacity>)
         }
 
     }
@@ -36,16 +38,27 @@ export default class Index extends Component {
     }
 
     componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid);
+        this.props.navigation.setParams({
+            goBack: () => this._goBack(),
+        });
+    }
 
+    componentUnWillMount() {
+        BackHandler.removeEventListener('hardwareBackPress', this._onBackAndroid);
+    }
+
+
+    _onBackAndroid = () => {
+        this.props.navigation.pop(2);
+        return true
     }
 
     _goBack() {
-        this.props.navigation.state.params.callback('你好！！！');
-        this.props.navigation.goBack();
+        this.props.navigation.pop(2);
     }
-
     _toNextPage() {
-        NavigationService.navigate('OnePageView');
+        this.props.navigation.pop(2);
     }
 
     render() {
@@ -56,26 +69,19 @@ export default class Index extends Component {
                         backgroundColor: AppColors.themecolor,
                         margin: 20,
                         padding: 10,
-                    }} onPress={() => this._goBack()}>
-                    <Text style={{ color: 'white', textAlign: 'center' }}>
-                        点击返回通知刷新
-                </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={{
-                        backgroundColor: AppColors.themecolor,
-                        margin: 20,
-                        padding: 10,
-                        marginTop: 50,
                     }} onPress={() => this._toNextPage()}>
                     <Text style={{ color: 'white', textAlign: 'center' }}>
-                        点击进入下个页面
+                        点击回到详情页面
                 </Text>
                 </TouchableOpacity>
 
             </View>
         );
     }
+
+
+
+
 
 
 }
@@ -87,5 +93,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-  
+
 });

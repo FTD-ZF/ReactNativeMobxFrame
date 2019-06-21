@@ -21,6 +21,7 @@ import { AppStyles, AppColors } from '../../commons/styles';
 import { Toast } from 'teaset';
 // import testStore from '../../mobx/testStore';
 import { observer, inject } from "mobx-react";
+import NavigationService from '../../commons/components/navigationService';
 
 @inject('rootStore')
 @observer
@@ -36,7 +37,6 @@ export default class Index extends Component {
         headerRight: (<View />)
 
     });
-
 
 
     // 构造
@@ -56,20 +56,25 @@ export default class Index extends Component {
             torefresh: (str) => this._toRefresh(str),
         });
 
+
+
+    }
+
+    componentUnWillMount() {
+
     }
 
     componentDidMount() {
-        this.testStore.getListData();
+        // this.testStore.getListData();
     }
-
-
 
     _showToast() {
         Toast.message('看下效果');
     }
 
     _todetails() {
-        this.props.navigation.navigate('DetailsView', {
+
+        NavigationService.navigate('DetailsView', {
             headername: '详情',
             callback: (str) => this.props.navigation.state.params.torefresh(str),
         });
