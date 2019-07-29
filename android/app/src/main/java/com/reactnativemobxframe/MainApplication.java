@@ -3,6 +3,7 @@ package com.reactnativemobxframe;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LinearGradientPackage(),
             new ReactSliderPackage(),
             new RNCViewPagerPackage(),
             new ReanimatedPackage(),

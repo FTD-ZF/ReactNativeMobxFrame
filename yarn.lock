@@ -1517,7 +1517,7 @@ create-react-class@15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-create-react-class@^15.6.3:
+create-react-class@^15.6.2, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "http://registry.npm.taobao.org/create-react-class/download/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -1955,7 +1955,7 @@ fbjs-scripts@^1.0.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.9, fbjs@~0.8.9:
+fbjs@^0.8.4, fbjs@^0.8.9, fbjs@~0.8.9:
   version "0.8.17"
   resolved "http://registry.npm.taobao.org/fbjs/download/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -3237,6 +3237,10 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "http://registry.npm.taobao.org/lodash.throttle/download/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
 
+lodash@^4.0.0:
+  version "4.17.14"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.14.tgz?cache=0&sync_timestamp=1562774134174&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
+
 lodash@^4.17.11, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.11"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
@@ -3745,6 +3749,10 @@ mobx-react@^5.4.3:
 mobx@^5.9.4:
   version "5.9.4"
   resolved "http://registry.npm.taobao.org/mobx/download/mobx-5.9.4.tgz#1dee92aba33f67b7baeeb679e3bd376a12e55812"
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.npm.taobao.org/moment/download/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
 
 morgan@^1.9.0:
   version "1.9.1"
@@ -4280,7 +4288,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "http://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -4344,6 +4352,13 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-addons-shallow-compare@15.6.2:
+  version "15.6.2"
+  resolved "https://registry.npm.taobao.org/react-addons-shallow-compare/download/react-addons-shallow-compare-15.6.2.tgz#198a00b91fc37623db64a28fd17b596ba362702f"
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-clone-referenced-element@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/react-clone-referenced-element/download/react-clone-referenced-element-1.1.0.tgz#9cdda7f2aeb54fea791f3ab8c6ab96c7a77d0158"
@@ -4367,6 +4382,30 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "http://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-native-action-button@^2.8.5:
+  version "2.8.5"
+  resolved "https://registry.npm.taobao.org/react-native-action-button/download/react-native-action-button-2.8.5.tgz#4152a50323a8a6b3468e6f161f9a9071f2f0739a"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-anchor-carousel@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/react-native-anchor-carousel/download/react-native-anchor-carousel-2.2.0.tgz#3cbc1ab8690e2bac1cd8449015eec5cd6f730ee0"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-animated-bar@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/react-native-animated-bar/download/react-native-animated-bar-0.2.0.tgz#98ffaaa58d5ac73d73a88b061141ef4f74a7dda1"
+
+react-native-countdown-component@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.npm.taobao.org/react-native-countdown-component/download/react-native-countdown-component-2.5.0.tgz#f4b77c4541bdba739ac0df2d82368d725d25b0b7"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.8"
+    sprintf-js "^1.1.1"
+
 "react-native-deprecated-custom-components@github:facebookarchive/react-native-custom-components":
   version "0.1.1"
   resolved "https://codeload.github.com/facebookarchive/react-native-custom-components/tar.gz/d5201e53221a2460b096ee82ff4480f3b0de7fe4"
@@ -4377,6 +4416,14 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
     prop-types "^15.5.10"
     react-timer-mixin "^0.13.2"
     rebound "^0.0.13"
+
+react-native-drag-sort@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.npm.taobao.org/react-native-drag-sort/download/react-native-drag-sort-1.3.3.tgz#d73ce0889c7a663b1f8b87f83f305f6134c6c5e8"
+
+react-native-ezswiper@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npm.taobao.org/react-native-ezswiper/download/react-native-ezswiper-1.3.0.tgz#706865e3caf67bdc190e4127583a4d4bec372f05"
 
 react-native-gesture-handler@^1.1.0:
   version "1.1.0"
@@ -4389,6 +4436,26 @@ react-native-gesture-handler@^1.1.0:
 react-native-iphone-x-helper@^1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/react-native-iphone-x-helper/download/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
+
+react-native-linear-gradient@^2.5.5:
+  version "2.5.5"
+  resolved "https://registry.npm.taobao.org/react-native-linear-gradient/download/react-native-linear-gradient-2.5.5.tgz#efea1f862bde939f6e073a51b4b3ca9e0bb62437"
+
+react-native-progress-bar-animated@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npm.taobao.org/react-native-progress-bar-animated/download/react-native-progress-bar-animated-1.0.6.tgz#18de003ababb8222c84299ef2f20d0eab549dc19"
+  dependencies:
+    prop-types "^15.6.0"
+
+react-native-progress-bar@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npm.taobao.org/react-native-progress-bar/download/react-native-progress-bar-0.1.2.tgz#2fbe32ed49d15e2a57a2b9d29b6d588a4fa1554e"
+
+react-native-progress@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.npm.taobao.org/react-native-progress/download/react-native-progress-3.6.0.tgz#feaf37491f91bb421207fd761e20cb7258a2a3a6"
+  dependencies:
+    prop-types "^15.7.2"
 
 react-native-reanimated@^1.0.0:
   version "1.0.0"
@@ -4403,6 +4470,25 @@ react-native-safe-area-view@^0.13.0:
 "react-native-screens@^1.0.0 || ^1.0.0-alpha":
   version "1.0.0-alpha.22"
   resolved "http://registry.npm.taobao.org/react-native-screens/download/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
+
+react-native-scrollable-tab-view@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.npm.taobao.org/react-native-scrollable-tab-view/download/react-native-scrollable-tab-view-0.10.0.tgz#8ce7908254685ee37d35df7d849676eaa1e81132"
+  dependencies:
+    create-react-class "^15.6.2"
+    prop-types "^15.6.0"
+    react-timer-mixin "^0.13.3"
+
+react-native-snap-carousel@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.npm.taobao.org/react-native-snap-carousel/download/react-native-snap-carousel-3.8.0.tgz#9372222d61d37d0a8a3bec423d135d0caa1b7595"
+  dependencies:
+    prop-types "^15.6.1"
+    react-addons-shallow-compare "15.6.2"
+
+react-native-svg@^9.5.1:
+  version "9.5.1"
+  resolved "https://registry.npm.taobao.org/react-native-svg/download/react-native-svg-9.5.1.tgz#eb21fa7eb5d71649620541e6549c6ed425d80240"
 
 react-native-tab-view@^1.2.0, react-native-tab-view@^1.3.4:
   version "1.3.4"
@@ -4510,7 +4596,7 @@ react-test-renderer@16.8.3:
     react-is "^16.8.3"
     scheduler "^0.13.3"
 
-react-timer-mixin@^0.13.2:
+react-timer-mixin@^0.13.2, react-timer-mixin@^0.13.3:
   version "0.13.4"
   resolved "http://registry.npm.taobao.org/react-timer-mixin/download/react-timer-mixin-0.13.4.tgz#75a00c3c94c13abe29b43d63b4c65a88fc8264d3"
 
@@ -4529,6 +4615,10 @@ react@16.8.3:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.13.3"
+
+react_native_countdowntimer@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npm.taobao.org/react_native_countdowntimer/download/react_native_countdowntimer-1.0.5.tgz#e99cbc1b0beccfb693520e1a815df7d2b0e9d156"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -5026,6 +5116,10 @@ split-string@^3.0.1, split-string@^3.0.2:
   resolved "http://registry.npm.taobao.org/split-string/download/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
   dependencies:
     extend-shallow "^3.0.0"
+
+sprintf-js@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.npm.taobao.org/sprintf-js/download/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
 
 sprintf-js@~1.0.2:
   version "1.0.3"
