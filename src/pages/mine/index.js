@@ -60,11 +60,12 @@ export default class Index extends Component {
         )
     }
     _keyExtractor = (item, index) => {
-        const { keyExtractor } = this.props;
-        if (keyExtractor) {
-            return keyExtractor(item, index);
-        }
-        return index.toString();
+        return item.name; // 我的
+        // const { keyExtractor } = this.props;
+        // if (keyExtractor) {
+        //     return keyExtractor(item, index);
+        // }
+        // return index.toString();
     };
 
     _changeMoveData(data) {
@@ -77,47 +78,49 @@ export default class Index extends Component {
     render() {
         let label2 = this.state.label2;
         return (
-            <ScrollView
-                ref={(scrollView) => this.scrollView = scrollView}
-                scrollEnabled={this.state.scrollEnabled}
-                style={{
-                    flex: 1,
-                    backgroundColor: '#fff',
-                }}>
-                <DragSortableView
-                    dataSource={this.state.firstData}
-                    parentWidth={width}
-                    childrenWidth={width}
-                    childrenHeight={51}
-                    scaleStatus={'scaleY'}
-                    onDragStart={(startIndex, endIndex) => {
-                        this.setState({
-                            scrollEnabled: false
-                        })
-                    }}
-                    onDragEnd={(startIndex) => {
-                        this.setState({
-                            scrollEnabled: true
-                        })
-                    }}
-                    onDataChange={(data) => {
-                        if (data.length != this.state.firstData.length) {
+            <View style={styles.container}>
+                <ScrollView
+                    onScrollEndDrag={({ nativeEvent }) => { this.setState({ scrollOffset: nativeEvent.contentOffset['y'] }); }}
+                    onMomentumScrollEnd={({ nativeEvent }) => { this.setState({ scrollOffset: nativeEvent.contentOffset['y'] }); }}
+
+                    ref={(scrollView) => this.scrollView = scrollView}
+                    scrollEnabled={this.state.scrollEnabled}
+                    style={styles.container}>
+                    <DragSortableView
+                        dataSource={this.state.firstData}
+                        parentWidth={width}
+                        childrenWidth={width}
+                        childrenHeight={51}
+                        scaleStatus={'scaleY'}
+                        onDragStart={(startIndex, endIndex) => {
                             this.setState({
-                                firstData: data
-                            });
-                        }
-                    }}
-                    keyExtractor={this._keyExtractor}
-                    onClickItem={(data, item, index) => {
+                                scrollEnabled: false
+                            })
+                        }}
+                        onDragEnd={(startIndex) => {
+                            this.setState({
+                                scrollEnabled: true
+                            })
+                        }}
+                        onDataChange={(data) => {
+                            if (data.length != this.state.firstData.length) {
+                                this.setState({
+                                    firstData: data
+                                });
+                            }
+                        }}
+                        keyExtractor={(item, index) => item.name} // FlatList作用一样，优化
+                        // keyExtractor={this._keyExtractor}
+                        onClickItem={(data, item, index) => {
 
-                    }}
-                    renderItem={(item, index) => {
-                        return this.renderDeleteItem(item, index)
-                    }}
-                />
-            </ScrollView>
+                        }}
+                        renderItem={(item, index) => {
+                            return this.renderDeleteItem(item, index)
+                        }}
+                    />
+                </ScrollView>
 
-
+            </View>
         );
     }
 
@@ -127,8 +130,7 @@ export default class Index extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+
         backgroundColor: '#F5FCFF',
     },
 

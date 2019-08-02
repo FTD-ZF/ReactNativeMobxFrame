@@ -108,11 +108,11 @@ export default class Index extends Component {
 
     _todetails() {
 
-        // NavigationService.navigate('DetailsView', {
-        //     headername: '详情',
-        //     callback: (str) => this.props.navigation.state.params.torefresh(str),
-        // });
-        this.setState({ f_endTime: '2019-07-19 16:49:00' })
+        NavigationService.navigate('DetailsView', {
+            headername: '详情',
+            callback: (str) => this.props.navigation.state.params.torefresh(str),
+        });
+        // this.setState({ f_endTime: '2019-07-19 16:49:00' })
     }
 
 
