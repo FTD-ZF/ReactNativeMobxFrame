@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import {
     Platform,
     StyleSheet,
@@ -13,9 +13,15 @@ import {
     Image,
     TouchableOpacity,
     BackHandler,
+    TextInput,
 } from 'react-native';
 import { AppColors } from '../../../commons/styles/index';
+import TestComponent from './TestComponent';
+import { observer, inject } from "mobx-react";
 
+
+@inject('rootStore')
+@observer
 export default class TwoPage extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
@@ -33,8 +39,11 @@ export default class TwoPage extends Component {
     // 构造
     constructor(props) {
         super(props);
+        this.testStore = this.props.rootStore.testStore;
         // 初始状态
-        this.state = {};
+        this.state = {
+            name: 'oop',
+        };
     }
 
     componentWillMount() {
@@ -61,6 +70,10 @@ export default class TwoPage extends Component {
         this.props.navigation.pop(2);
     }
 
+    _toChangeTxt() {
+        this.testStore.textname='123'
+    }
+  
     render() {
         return (
             <View style={styles.container}>
@@ -74,7 +87,20 @@ export default class TwoPage extends Component {
                         点击回到详情页面
                 </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                    style={{
+                        backgroundColor: AppColors.themecolor,
+                        margin: 20,
+                        padding: 10,
+                        marginTop: 50,
+                    }} onPress={() => this._toChangeTxt()}>
+                    <Text style={{ color: 'white', textAlign: 'center' }}>
+                        点击修改内容
+                </Text>
+                </TouchableOpacity>
 
+                <TestComponent name={this.testStore.textname} />
+               
             </View>
         );
     }

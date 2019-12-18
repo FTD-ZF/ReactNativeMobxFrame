@@ -15,7 +15,9 @@ import {
     TextInput,
     TouchableOpacity,
     BackHandler,
-    Dimensions
+    Dimensions,
+    PixelRatio,
+    StatusBar,
 } from 'react-native';
 
 import { AppStyles, AppColors } from '../../commons/styles';
@@ -69,8 +71,9 @@ export default class Index extends Component {
     // 构造
     constructor(props) {
         super(props);
-        this.timeid = '1',
-            this.testStore = this.props.rootStore.testStore;
+       
+        this.timeid = '1';
+        this.testStore = this.props.rootStore.testStore;
         // 初始状态
         this.state = {
 
@@ -94,12 +97,14 @@ export default class Index extends Component {
 
     }
 
+
     componentUnWillMount() {
 
     }
 
     componentDidMount() {
         // this.testStore.getListData();
+        // Toast.message('' + PixelRatio.get())
     }
 
     _showToast() {
@@ -193,7 +198,9 @@ export default class Index extends Component {
 
         return (
             <View style={styles.container}>
-
+                {/* <StatusBar backgroundColor={'#eae9f1'} //状态栏背景颜色
+                    barStyle={'dark-content'} //状态栏样式（黑字）
+                /> */}
 
                 <TouchableOpacity
                     style={{
@@ -234,7 +241,7 @@ export default class Index extends Component {
                     <Text>99</Text>
                 </Progress.Bar> */}
                 {/* 每次打包时，修改node_modules包中，react-native-progrese下Bar.js文件中，第145行的progressStyle中加borderRadius即可 */}
-                <View style={{ backgroundColor: '#f6a7ab', width: 130, borderRadius: 20 }}>
+                {/* <View style={{ backgroundColor: '#f6a7ab', width: 130, borderRadius: 20 }}>
                     <Progress.Bar progress={0.6} width={130} height={20} borderRadius={20}
                         borderColor={'red'} borderWidth={0} color={'red'}
 
@@ -248,8 +255,8 @@ export default class Index extends Component {
                         </View>
                     </Progress.Bar>
 
-                </View>
-
+                </View> */}
+                {/* 
                 <View style={{ marginVertical: 30 }}>
                     <CusProgress progress={0.6227} />
                     <View style={{
@@ -257,9 +264,9 @@ export default class Index extends Component {
                         height: 20, justifyContent: 'space-between', position: 'absolute'
                     }}>
                         <Text style={{ color: 'white', fontSize: 10 }}>已抢22件</Text>
-                        <Text style={{ color: 'white', fontSize: 10}}>23%</Text>
+                        <Text style={{ color: 'white', fontSize: 10 }}>23%</Text>
                     </View>
-                </View>
+                </View> */}
 
 
                 {/* <View style={{ width: 150, backgroundColor: 'blue', borderRadius: 75, }}>
@@ -320,7 +327,7 @@ export default class Index extends Component {
                     firstColonStyle={styles.colon}
                     secondColonStyle={styles.colon}
                 /> */}
-                <SDCountDownTimeLabel
+                {/* <SDCountDownTimeLabel
                     finalTime={this.state.f_endTime}
                     separatorStyle={{ color: 'red' }}
                     deviation={1}
@@ -337,7 +344,7 @@ export default class Index extends Component {
                         //         f_endTime: f_endTime,
                         //     })
                         // }
-                    }} />
+                    }} /> */}
                 {/* <CountDown
                     id={this.timeid}
                     size={12}

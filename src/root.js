@@ -5,6 +5,11 @@ import CenterView from './pages/center/index';
 import LoginView from './pages/login';
 import OnePageView from './pages/home/testpages/onepage';
 import TwoPageView from './pages/home/testpages/twopage';
+import VideoPage from './pages/center/video';
+import PlaceHolderPage from './pages/center/RNplaceholder';
+import FontAdapterPage from './pages/center/FontAdapter';
+import LongPicPage from './pages/center/FontAdapter/longPicPage';
+
 export {
     HomeTab,
     MineTab,
@@ -13,4 +18,8 @@ export {
     LoginView,
     OnePageView,
     TwoPageView,
+    VideoPage,
+    PlaceHolderPage,
+    FontAdapterPage,
+    LongPicPage,
 }

@@ -37,7 +37,7 @@ export default class Index extends Component {
     // 构造
     constructor(props) {
         super(props);
-
+        
         this.loginStore = this.props.rootStore.loginStore;
         this.state = {
 
@@ -60,6 +60,7 @@ export default class Index extends Component {
 
         return (
             <View style={styles.container}>
+                  
                 <TouchableOpacity style={{
                     backgroundColor: AppColors.themecolor,
                     width: 200, borderRadius: 10,

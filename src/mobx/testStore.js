@@ -6,6 +6,7 @@ import HttpUtils from '../commons/utils/httpUtils';
 class TestStore {
 
     @observable listdata = '';
+    @observable textname = 'pppp';
 
 
     @action
@@ -14,7 +15,7 @@ class TestStore {
             if (response.code == 200) {
                 console.log(JSON.stringify(response.result));
                 this.listdata = JSON.stringify(response.result);
-               
+
             }
 
         })
