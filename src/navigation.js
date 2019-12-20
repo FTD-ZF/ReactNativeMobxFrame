@@ -12,7 +12,7 @@ import {
 } from 'react-navigation';
 import { headerOptions, RouteConfigs, } from './commons/components/navConfig';
 
-import { HomeTab, MineTab, DetailsView, CenterView, LoginView, OnePageView, TwoPageView, VideoPage, PlaceHolderPage, FontAdapterPage, LongPicPage } from './root';
+import { HomeTab, MineTab, DetailsView, CenterView, LoginView, OnePageView, TwoPageView, VideoPage, PlaceHolderPage, FontAdapterPage, DragListItemPage } from './root';
 import { AppColors, AppStyles } from './commons/styles/index';
 import CustomTabComponent from './commons/components/Tab';
 const TabBarText = {
@@ -161,8 +161,8 @@ const stackNavigators = createStackNavigator(
                 })
             },
         },
-        LongPicPage: {
-            screen: LongPicPage,
+        DragListItemPage: {
+            screen: DragListItemPage,
             navigationOptions: props => {
                 return headerOptions({
                     ...props,
@@ -172,6 +172,8 @@ const stackNavigators = createStackNavigator(
                 })
             },
         },
+
+
     },
     {
         //         // defaultNavigationOptions: ({ navigation }) => {

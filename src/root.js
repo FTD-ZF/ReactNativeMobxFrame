@@ -8,7 +8,7 @@ import TwoPageView from './pages/home/testpages/twopage';
 import VideoPage from './pages/center/video';
 import PlaceHolderPage from './pages/center/RNplaceholder';
 import FontAdapterPage from './pages/center/FontAdapter';
-import LongPicPage from './pages/center/FontAdapter/longPicPage';
+import DragListItemPage from './pages/center/DragListItem';
 
 export {
     HomeTab,
@@ -21,5 +21,6 @@ export {
     VideoPage,
     PlaceHolderPage,
     FontAdapterPage,
-    LongPicPage,
+    DragListItemPage,
+
 }
