@@ -10,7 +10,11 @@ import PlaceHolderPage from './pages/center/RNplaceholder';
 import FontAdapterPage from './pages/center/FontAdapter';
 import DragListItemPage from './pages/center/DragListItem';
 
-export {
+
+
+
+
+export const PageName = {
     HomeTab,
     MineTab,
     DetailsView,
@@ -22,5 +26,23 @@ export {
     PlaceHolderPage,
     FontAdapterPage,
     DragListItemPage,
+
+}
+
+
+
+export const NavPages = {
+    HomeTab: 'HomeTab',
+    MineTab: 'MineTab',
+    DetailsView: 'DetailsView',
+    CenterView: 'CenterView',
+    LoginView: 'LoginView',
+    OnePageView: 'OnePageView',
+    TwoPageView: 'TwoPageView',
+    VideoPage: 'VideoPage',
+    PlaceHolderPage: 'PlaceHolderPage',
+    FontAdapterPage: 'FontAdapterPage',
+    DragListItemPage: 'DragListItemPage',
+
 
 }

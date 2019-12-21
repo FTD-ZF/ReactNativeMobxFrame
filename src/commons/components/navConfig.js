@@ -7,7 +7,7 @@ const activeTabColor = '#38ADFF';// 底部文字和图片选中颜色
 const defaultTabColor = '#949494';//文字和图片未选中颜色
 
 const headerOptions = props => {
-    const { navigation, navigationOptions, visible = true, back = false, right = false, onRightPress } = props
+    const { navigation, navigationOptions, visible = true, back = true, right = false, onRightPress } = props
     const { goBack } = navigation
     const headerLeft = back ? (
         <TouchableOpacity onPress={() => goBack(null)}>

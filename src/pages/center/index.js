@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { Toast } from 'teaset';
 import NavigationService from '../../commons/components/navigationService.js';
+import { NavPages } from '../../root.js';
 
 export default class Index extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -44,19 +45,20 @@ export default class Index extends Component {
     }
 
     _toPlayVideo() {
-        NavigationService.navigate('VideoPage')
+        NavigationService.navigate(NavPages.VideoPage)
     }
 
     _toPlaceHolder() {
-        NavigationService.navigate('PlaceHolderPage')
+        NavigationService.navigate(NavPages.PlaceHolderPage)
     }
 
     _toFontAdapter() {
-        NavigationService.navigate('FontAdapterPage');
+        NavigationService.navigate(NavPages.FontAdapterPage);
     }
 
     _dragListItem() {
-        NavigationService.navigate('DragListItemPage')
+
+        NavigationService.navigate(NavPages.DragListItemPage)
     }
 
     render() {

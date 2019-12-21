@@ -12,9 +12,10 @@ import {
 } from 'react-navigation';
 import { headerOptions, RouteConfigs, } from './commons/components/navConfig';
 
-import { HomeTab, MineTab, DetailsView, CenterView, LoginView, OnePageView, TwoPageView, VideoPage, PlaceHolderPage, FontAdapterPage, DragListItemPage } from './root';
+// import { HomeTab, MineTab, DetailsView, CenterView, LoginView, OnePageView, TwoPageView, VideoPage, PlaceHolderPage, FontAdapterPage, DragListItemPage } from './root';
 import { AppColors, AppStyles } from './commons/styles/index';
 import CustomTabComponent from './commons/components/Tab';
+import { PageName } from './root';
 const TabBarText = {
     home: '首页',
     centertext: '新增',
@@ -23,9 +24,9 @@ const TabBarText = {
 
 const TabNavigator = createBottomTabNavigator(
     {
-        Home: {
+        HomeTab: {
 
-            screen: HomeTab,
+            screen: PageName.HomeTab,
             navigationOptions: props => {
                 return RouteConfigs({
                     imgSource: require('../src/assets/imgs/homeSelect.png'),
@@ -36,8 +37,8 @@ const TabNavigator = createBottomTabNavigator(
 
 
         },
-        Center: {
-            screen: CenterView,
+        CenterView: {
+            screen: PageName.CenterView,
             navigationOptions: props => {
                 return RouteConfigs({
                     imgSource: require('../src/assets/imgs/homeSelect.png'),
@@ -48,8 +49,8 @@ const TabNavigator = createBottomTabNavigator(
 
 
         },
-        Mine: {
-            screen: MineTab,
+        MineTab: {
+            screen: PageName.MineTab,
             navigationOptions: props => {
                 return RouteConfigs({
                     imgSource: require('../src/assets/imgs/homeSelect.png'),
@@ -89,93 +90,75 @@ TabNavigator.navigationOptions = ({ navigation, screenProps }) => {
     }
 }
 
-const stackNavigators = createStackNavigator(
-    {
-        Root: {
-            screen: TabNavigator,
-
-        },
-        DetailsView: {
-            screen: DetailsView,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
-        OnePageView: {
-            screen: OnePageView,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
-        TwoPageView: {
-            screen: TwoPageView,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
-        VideoPage: {
-            screen: VideoPage,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
-        PlaceHolderPage: {
-            screen: PlaceHolderPage,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
-        FontAdapterPage: {
-            screen: FontAdapterPage,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
-        DragListItemPage: {
-            screen: DragListItemPage,
-            navigationOptions: props => {
-                return headerOptions({
-                    ...props,
-                    ...{
-                        back: true,
-                    },
-                })
-            },
-        },
 
 
+const stackPageNavigationOptions = (props, boolBack) => {
+    return headerOptions({
+        ...props,
+        ...{
+            back: boolBack,
+        },
+    })
+}
+
+const Pages = {
+    Root: {
+        screen: TabNavigator,
     },
+    DetailsView: {
+        screen: PageName.DetailsView,
+        navigationOptions: stackPageNavigationOptions
+    },
+    OnePageView: {
+        screen: PageName.OnePageView,
+        navigationOptions: stackPageNavigationOptions
+    },
+    TwoPageView: {
+        screen: PageName.TwoPageView,
+        navigationOptions: stackPageNavigationOptions
+    },
+    VideoPage: {
+        screen: PageName.VideoPage,
+        navigationOptions: stackPageNavigationOptions
+    },
+    PlaceHolderPage: {
+        screen: PageName.PlaceHolderPage,
+        navigationOptions: stackPageNavigationOptions
+    },
+    FontAdapterPage: {
+        screen: PageName.FontAdapterPage,
+        navigationOptions: stackPageNavigationOptions
+    },
+    DragListItemPage: {
+        screen: PageName.DragListItemPage,
+        navigationOptions: stackPageNavigationOptions
+    },
+
+}
+
+const stackNavigators = createStackNavigator(Pages,
+
     {
+
+        // navigationOptions: ({ navigation } = 0) => {
+        //     return {
+        //       headerStyle: {
+        //         backgroundColor: AppColors.themecolor,
+        //         borderBottomWidth: 0,
+        //       },
+        //       headerTitleStyle: {
+        //         color: '#ffffff',
+        //         alignSelf: 'center',
+        //         justifyContent: 'center',
+        //         alignItems: 'center',
+        //       },
+        //       headerTintColor: '#ffffff',
+        //       headerBackTitle: null,
+        //       gesturesEnabled: false,
+        //     };
+        //   },
+
+
         //         // defaultNavigationOptions: ({ navigation }) => {
 
         //         //     return {
@@ -213,15 +196,24 @@ const stackNavigators = createStackNavigator(
             }
         })
 
-
-
     }
+
+
 );
 
+// stackNavigators.navigationOptions = (props) => {
+//     return headerOptions({
+//         ...props,
+//         ...{
+//             back: false,
+
+//         },
+//     })
+// };
 
 const SwitchNavigator = createSwitchNavigator(
     {
-        Login: LoginView,
+        Login: PageName.LoginView,
         App: stackNavigators,
     },
     {

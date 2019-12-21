@@ -40,6 +40,7 @@ export default class Tab extends Component {
 
         return (
             <TouchableOpacity
+                activeOpacity={0.8}
                 key={route.key}
                 style={styles.tabItem}
                 onPress={() => jumpTo(route.key)}>
@@ -69,6 +70,7 @@ export default class Tab extends Component {
                 {routes && routes.map((route, index) => this.renderItem(route, index))}
             </View>
             <TouchableOpacity
+                activeOpacity={0.8}
                 // key={"centerView"}
                 style={[styles.tabItem, {
                     position: 'absolute', bottom: 0,

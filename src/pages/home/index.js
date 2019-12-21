@@ -40,6 +40,7 @@ import moment from 'moment';
 import CountDown from 'react-native-countdown-component';
 import SDCountDownTimeLabel from './SDCountDownTimeLabel';
 import CusProgress from '../../commons/components/CusProgress';
+import { NavPages } from '../../root';
 // import ProgressBar from 'react-native-progress-bar';
 
 
@@ -71,7 +72,7 @@ export default class Index extends Component {
     // 构造
     constructor(props) {
         super(props);
-       
+
         this.timeid = '1';
         this.testStore = this.props.rootStore.testStore;
         // 初始状态
@@ -113,7 +114,7 @@ export default class Index extends Component {
 
     _todetails() {
 
-        NavigationService.navigate('DetailsView', {
+        NavigationService.navigate(NavPages.DetailsView, {
             headername: '详情',
             callback: (str) => this.props.navigation.state.params.torefresh(str),
         });

@@ -26,6 +26,7 @@ import { Toast } from 'teaset';
 
 import { observer, inject } from "mobx-react";
 import NavigationService from '../../commons/components/navigationService';
+import { NavPages } from '../../root';
 
 @inject('rootStore')
 @observer
@@ -53,7 +54,7 @@ export default class Index extends Component {
     }
 
     _toLogin() {
-        NavigationService.navigate('Home');
+        NavigationService.navigate(NavPages.HomeTab);
     }
 
     render() {

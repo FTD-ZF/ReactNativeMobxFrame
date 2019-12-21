@@ -18,6 +18,7 @@ import {
 import { AppColors } from '../commons/styles';
 import NavigationService from '../commons/components/navigationService';
 import DragSortableView from 'react-native-drag-sort';
+import { NavPages } from '../root';
 
 const { width } = Dimensions.get('window')
 
@@ -60,7 +61,7 @@ export default class Index extends Component {
     }
 
     _toNextPage() {
-        NavigationService.navigate('OnePageView');
+        NavigationService.navigate(NavPages.OnePageView);
     }
 
     render() {

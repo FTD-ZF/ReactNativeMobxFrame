@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { AppColors } from '../../../commons/styles/index';
 import NavigationService from '../../../commons/components/navigationService';
+import { NavPages } from '../../../root';
 
 export default class OnePage extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -40,7 +41,7 @@ export default class OnePage extends Component {
     }
 
     _toNextPage() {
-        NavigationService.navigate('TwoPageView');
+        NavigationService.navigate(NavPages.TwoPageView);
     }
 
     render() {
