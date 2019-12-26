@@ -23,12 +23,14 @@ import AppStyles from '../../../commons/styles/styles';
 import AppColors from '../../../commons/styles/colors';
 import DragSortableView from 'react-native-drag-sort';
 import { screen, dFont, aWidth, aHeight, } from '../../../commons/utils/screenUtils';
+import Swipeout from 'react-native-swipeout';
+import { Toast } from 'teaset';
 
 
 export default class Index extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        headerTitle: 'Item拖动',
+        headerTitle: 'Item拖动，侧滑',
     });
 
 
@@ -47,14 +49,48 @@ export default class Index extends Component {
     }
 
 
-    renderDeleteItem(item, index) {
+    editItem(item, index) {
+        Toast.message('编辑******' + index)
+    }
+
+    deleteItem(item, index) {
+        Toast.message(item.name + '****' + index)
+        this.state.firstData.splice(index, 1);
+
+        let data = [];
+        this.state.firstData.map((item, index) => {
+            data.push(item)
+        })
+
+        this.setState({
+            firstData: data
+        })
+    }
+
+    renderItem(item, index) {
+        let swipeoutBtns = [
+            {
+                text: '编辑',
+                backgroundColor: 'green',
+                onPress: () => this.editItem(item, index)
+
+            },
+            {
+                text: '删除',
+                backgroundColor: 'red',
+                onPress: () => this.deleteItem(item, index)
+
+            }
+        ]
         return (
-            <View style={{ backgroundColor: 'blue', }}>
-                <View style={{ flexDirection: 'row', paddingRight: 19, width: screen.width, height: 50, alignItems: 'center' }}>
-                    <Text style={{ color: 'red', fontSize: 13 }}>{item.name}</Text>
+            <Swipeout right={swipeoutBtns}>
+                <View style={{ backgroundColor: 'blue', }}>
+                    <View style={{ flexDirection: 'row', paddingRight: 19, width: screen.width, height: 50, alignItems: 'center' }}>
+                        <Text style={{ color: 'white', fontSize: 13 }}>{item.name}</Text>
+                    </View>
+                    <View style={{ height: 0.5, backgroundColor: AppColors.dark9 }} />
                 </View>
-                <View style={{ height: 0.5, backgroundColor: AppColors.dark9 }} />
-            </View>
+            </Swipeout>
         )
     }
     _keyExtractor = (item, index) => {
@@ -110,7 +146,7 @@ export default class Index extends Component {
 
                     }}
                     renderItem={(item, index) => {
-                        return this.renderDeleteItem(item, index)
+                        return this.renderItem(item, index)
                     }}
                 />
             </ScrollView>

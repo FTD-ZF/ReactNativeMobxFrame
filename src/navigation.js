@@ -15,7 +15,7 @@ import { headerOptions, RouteConfigs, } from './commons/components/navConfig';
 // import { HomeTab, MineTab, DetailsView, CenterView, LoginView, OnePageView, TwoPageView, VideoPage, PlaceHolderPage, FontAdapterPage, DragListItemPage } from './root';
 import { AppColors, AppStyles } from './commons/styles/index';
 import CustomTabComponent from './commons/components/Tab';
-import { PageName } from './root';
+import { PageName, NavPages } from './root';
 const TabBarText = {
     home: '首页',
     centertext: '新增',

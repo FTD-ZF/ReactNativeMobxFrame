@@ -43,6 +43,7 @@
     "react-native-shimmer-placeholder": "^1.0.35",
     "react-native-snap-carousel": "^3.8.0",
     "react-native-svg": "^9.5.1",
+    "react-native-swipeout": "^2.3.6",
     "react-native-video": "^4.4.4",
     "react-navigation": "^3.7.1",
     "react_native_countdowntimer": "^1.0.5",
@@ -52,6 +53,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
+    "@babel/template": "^7.7.4",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",

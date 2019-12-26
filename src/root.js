@@ -13,7 +13,9 @@ import DragListItemPage from './pages/center/DragListItem';
 
 
 
-
+/**
+ * 页面添加时使用该值
+ */
 export const PageName = {
     HomeTab,
     MineTab,
@@ -31,6 +33,9 @@ export const PageName = {
 
 
 
+/**
+ * 跳转页面时使用该值跳转
+ */
 export const NavPages = {
     HomeTab: 'HomeTab',
     MineTab: 'MineTab',

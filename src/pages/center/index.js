@@ -86,7 +86,7 @@ export default class Index extends Component {
                     width: '100%', alignItems: 'center', paddingVertical: 20,
                     backgroundColor: 'yellow', marginTop: 10
                 }} onPress={() => this._dragListItem()}>
-                    <Text style={{ color: 'black', fontSize: 18 }}>item拖动</Text>
+                    <Text style={{ color: 'black', fontSize: 18 }}>item拖动，侧滑</Text>
                 </TouchableOpacity>
 
             </View>
