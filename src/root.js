@@ -9,7 +9,7 @@ import VideoPage from './pages/center/video';
 import PlaceHolderPage from './pages/center/RNplaceholder';
 import FontAdapterPage from './pages/center/FontAdapter';
 import DragListItemPage from './pages/center/DragListItem';
-
+import TableView from './pages/center/Table';
 
 
 
@@ -28,6 +28,7 @@ export const PageName = {
     PlaceHolderPage,
     FontAdapterPage,
     DragListItemPage,
+    TableView,
 
 }
 
@@ -48,6 +49,7 @@ export const NavPages = {
     PlaceHolderPage: 'PlaceHolderPage',
     FontAdapterPage: 'FontAdapterPage',
     DragListItemPage: 'DragListItemPage',
+    TableView: 'TableView',
 
 
 }

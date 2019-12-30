@@ -133,6 +133,11 @@ const Pages = {
         screen: PageName.DragListItemPage,
         navigationOptions: stackPageNavigationOptions
     },
+    TableView: {
+        screen: PageName.TableView,
+        navigationOptions: stackPageNavigationOptions
+
+    }
 
 }
 

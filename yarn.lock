@@ -1198,6 +1198,12 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+beeshell@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.npm.taobao.org/beeshell/download/beeshell-2.0.11.tgz#90ed9356312676973db819ef9b8035bc7ea9cbdd"
+  dependencies:
+    moment "^2.24.0"
+
 big-integer@^1.6.7:
   version "1.6.43"
   resolved "http://registry.npm.taobao.org/big-integer/download/big-integer-1.6.43.tgz#8ac15bf13e93e509500859061233e19d8d0d99d1"
@@ -4555,6 +4561,10 @@ react-native-tab-view@^1.2.0, react-native-tab-view@^1.3.4:
   resolved "http://registry.npm.taobao.org/react-native-tab-view/download/react-native-tab-view-1.3.4.tgz#63fc3eb09652651d0ea0e016cff0f3a5e535f4de"
   dependencies:
     prop-types "^15.6.1"
+
+react-native-table-component@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/react-native-table-component/download/react-native-table-component-1.2.1.tgz#5f1e0f159b1dff9df0d5601c4a5ab99d1aa99a25"
 
 react-native-video@^4.4.4:
   version "4.4.4"

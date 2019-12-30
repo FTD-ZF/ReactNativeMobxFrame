@@ -58,7 +58,11 @@ export default class Index extends Component {
 
     _dragListItem() {
 
-        NavigationService.navigate(NavPages.DragListItemPage)
+        NavigationService.navigate(NavPages.DragListItemPage);
+    }
+
+    _toTableView() {
+        NavigationService.navigate(NavPages.TableView);
     }
 
     render() {
@@ -87,6 +91,12 @@ export default class Index extends Component {
                     backgroundColor: 'yellow', marginTop: 10
                 }} onPress={() => this._dragListItem()}>
                     <Text style={{ color: 'black', fontSize: 18 }}>item拖动，侧滑</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{
+                    width: '100%', alignItems: 'center', paddingVertical: 20,
+                    backgroundColor: 'gray', marginTop: 10
+                }} onPress={() => this._toTableView()}>
+                    <Text style={{ color: 'white', fontSize: 18 }}>表格布局</Text>
                 </TouchableOpacity>
 
             </View>
