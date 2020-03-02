@@ -61,7 +61,7 @@ export default class Index extends Component {
 
         return (
             <View style={styles.container}>
-                  
+                   <StatusBar barStyle={'dark-content'} backgroundColor='transparent' translucent={true} />
                 <TouchableOpacity style={{
                     backgroundColor: AppColors.themecolor,
                     width: 200, borderRadius: 10,

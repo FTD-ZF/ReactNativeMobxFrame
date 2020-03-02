@@ -19,6 +19,7 @@ import { AppColors } from '../commons/styles';
 import NavigationService from '../commons/components/navigationService';
 import DragSortableView from 'react-native-drag-sort';
 import { NavPages } from '../root';
+import BaseComponent from './home/BaseComponent';
 
 const { width } = Dimensions.get('window')
 
@@ -26,7 +27,7 @@ const parentWidth = width
 const childrenWidth = width
 const childrenHeight = 48
 
-export default class Index extends Component {
+export default class Index extends BaseComponent {
     static navigationOptions = ({ navigation }) => {
         return {
 
@@ -56,8 +57,10 @@ export default class Index extends Component {
     }
 
     _goBack() {
-        this.props.navigation.state.params.callback('你好！！！');
-        this.props.navigation.goBack();
+        // this.props.navigation.state.params.callback('你好！！！');
+        // this.props.navigation.goBack();
+        this.getNavParams().callback('你好！！！');
+        this.goBack();
     }
 
     _toNextPage() {
@@ -89,7 +92,7 @@ export default class Index extends Component {
                 </Text>
                 </TouchableOpacity>
 
-                
+
             </View>
         );
     }

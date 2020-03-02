@@ -18,11 +18,12 @@ import {
 import { AppColors } from '../../../commons/styles/index';
 import TestComponent from './TestComponent';
 import { observer, inject } from "mobx-react";
+import BaseComponent from '../BaseComponent';
 
 
 @inject('rootStore')
 @observer
-export default class TwoPage extends Component {
+export default class TwoPage extends BaseComponent {
     static navigationOptions = ({ navigation }) => {
         return {
 
@@ -48,7 +49,7 @@ export default class TwoPage extends Component {
 
     componentWillMount() {
         BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid);
-        this.props.navigation.setParams({
+        this.getNavProps().setParams({
             goBack: () => this._goBack(),
         });
     }
@@ -59,15 +60,18 @@ export default class TwoPage extends Component {
 
 
     _onBackAndroid = () => {
-        this.props.navigation.pop(2);
+        // this.props.navigation.pop(2);
+        this.goNavPop(2)
         return true
     }
 
     _goBack() {
-        this.props.navigation.pop(2);
+        // this.props.navigation.pop(2);
+        this.goNavPop(2)
     }
     _toNextPage() {
-        this.props.navigation.pop(2);
+        // this.props.navigation.pop(2);
+        this.goNavPop(2)
     }
 
     _toChangeTxt() {

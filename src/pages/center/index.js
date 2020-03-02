@@ -65,6 +65,10 @@ export default class Index extends Component {
         NavigationService.navigate(NavPages.TableView);
     }
 
+    _toDropDown(){
+        NavigationService.navigate(NavPages.DropDownView);
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -97,6 +101,12 @@ export default class Index extends Component {
                     backgroundColor: 'gray', marginTop: 10
                 }} onPress={() => this._toTableView()}>
                     <Text style={{ color: 'white', fontSize: 18 }}>表格布局</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{
+                    width: '100%', alignItems: 'center', paddingVertical: 20,
+                    backgroundColor: 'red', marginTop: 10
+                }} onPress={() => this._toDropDown()}>
+                    <Text style={{ color: 'black', fontSize: 18 }}>筛选</Text>
                 </TouchableOpacity>
 
             </View>

@@ -16,8 +16,9 @@ import {
 import { AppColors } from '../../../commons/styles/index';
 import NavigationService from '../../../commons/components/navigationService';
 import { NavPages } from '../../../root';
+import BaseComponent from '../BaseComponent';
 
-export default class OnePage extends Component {
+export default class OnePage extends BaseComponent {
     static navigationOptions = ({ navigation }) => {
         return {
 

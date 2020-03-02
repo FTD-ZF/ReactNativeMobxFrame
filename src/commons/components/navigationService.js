@@ -8,6 +8,7 @@ export default class NavigationService {
     }
 
     static navigate(routeName, params) {
+        // console.log(navigator)
         navigator.dispatch(
             NavigationActions.navigate({ routeName, params })
         );

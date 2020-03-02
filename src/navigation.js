@@ -137,6 +137,11 @@ const Pages = {
         screen: PageName.TableView,
         navigationOptions: stackPageNavigationOptions
 
+    },
+    DropDownView: {
+        screen: PageName.DropDownView,
+        navigationOptions: stackPageNavigationOptions
+
     }
 
 }

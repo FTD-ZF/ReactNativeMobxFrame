@@ -10,6 +10,7 @@ import PlaceHolderPage from './pages/center/RNplaceholder';
 import FontAdapterPage from './pages/center/FontAdapter';
 import DragListItemPage from './pages/center/DragListItem';
 import TableView from './pages/center/Table';
+import DropDownView from './pages/center/DropDownView';
 
 
 
@@ -29,6 +30,7 @@ export const PageName = {
     FontAdapterPage,
     DragListItemPage,
     TableView,
+    DropDownView,
 
 }
 
@@ -50,6 +52,7 @@ export const NavPages = {
     FontAdapterPage: 'FontAdapterPage',
     DragListItemPage: 'DragListItemPage',
     TableView: 'TableView',
+    DropDownView: 'DropDownView',
 
 
 }

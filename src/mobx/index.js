@@ -1,16 +1,17 @@
 
 
 
-import TestStore from './testStore';
+import testStore from './testStore';
 
 
 
 //进行每个store的添加
-class RootStore {
+// class RootStore {
 
-    constructor() {
-        this.testStore = TestStore;
-    }
-}
-
-export default new RootStore()
+//     constructor() {
+//         this.testStore = TestStore;
+//     }
+// }
+const rootStore = { testStore, }
+export default rootStore
+// export default new RootStore()

@@ -38,22 +38,32 @@ const AppStyles = {
         backgroundColor: "#f8f8f8",
 
     },
-    NavTopStyle: {
-        // height: 44,
+    NavTopStyle: Platform.OS == 'android' ? {
+        height: 44 + StatusBarHeight,
         // height: Platform.OS === 'android' ? 44 + StatusBarHeight : ((ScreenWidth === XSMAX_WIDTH) || (ScreenHeight === XSMAX_HEIGHT) ? 64 : 44),
         // height: Platform.OS === 'android' ? 40 + StatusBarHeight : 0,
         // paddingTop: Platform.OS === 'android' ? StatusBarHeight : ((ScreenWidth === XSMAX_WIDTH) || (ScreenHeight === XSMAX_HEIGHT) ? 40 : 0),
-        paddingTop: Platform.OS === 'android' ? StatusBarHeight : 0,
+        paddingTop: StatusBarHeight,
         backgroundColor: AppColors.themecolor,
         borderBottomWidth: 0,
         elevation: 0,//消除安卓端导航栏底部的阴影
-    },
+        // paddingBottom: Platform.OS == 'android' ? 5 : 0,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+
+    } : {
+            backgroundColor: AppColors.themecolor,
+            borderBottomWidth: 0,
+            elevation: 0,//消除安卓端导航栏底部的阴影 
+        }
+    ,
     NavTopTitleStyle: {
-        fontSize: 18,
+        fontSize: 20,
         alignSelf: "center",
         color: "#f8f8f8",
         flex: 1,
         textAlign: 'center',
+        // backgroundColor: 'red'
     },
 }
 

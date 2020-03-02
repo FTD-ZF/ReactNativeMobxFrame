@@ -12,7 +12,7 @@ import { Platform, StyleSheet, Text, View, BackHandler } from 'react-native';
 import Navigator from './src/navigation';
 import { Toast } from 'teaset';
 import { Provider } from 'mobx-react';
-import store from './src/mobx/index';
+import rootStore from './src/mobx/index';
 import NavigationService from './src/commons/components/navigationService';
 
 
@@ -49,7 +49,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider rootStore={store}>
+      <Provider rootStore={rootStore}>
         <Navigator
           ref={(ref) => this._getRef(ref)}
           onNavigationStateChange={(prevState, newState, action) => {
