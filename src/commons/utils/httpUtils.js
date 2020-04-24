@@ -9,6 +9,7 @@ import { Component } from 'react'
 let header = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
+    // 'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ5b3VrZSIsImV4cCI6MTU2NzQxMzUwNiwiaWF0IjoxNTY3NDEzNDk5LCJ1c2VybmFtZSI6InlvdWtlIn0.2QgH0ADw1Z8OJLrDaF8h_8Fg5QkvURCsCSdsa6LzL7SyeSloz7FKg5eZw1yhHs801l1FuwDvPwAJfheqOYuNZQ'
 }
 
 /**
@@ -73,7 +74,9 @@ export default class HttpUtils extends Component {
     static getRequest = (url, params = {}) => {
         return timeoutFetch(fetch(handleUrl(url)(params), {
             method: 'GET',
-            headers: header
+            headers: header,
+
+
         })).then(response => {
             if (response.ok) {
                 return response.json()

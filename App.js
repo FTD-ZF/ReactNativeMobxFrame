@@ -8,7 +8,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, BackHandler } from 'react-native';
+import { Platform, StyleSheet, Text, View, BackHandler, NetInfo, } from 'react-native';
 import Navigator from './src/navigation';
 import { Toast } from 'teaset';
 import { Provider } from 'mobx-react';
@@ -20,10 +20,14 @@ export default class App extends Component {
 
   componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid);
+    NetInfo.addEventListener('connectionChange', this.handleFirstConnectivityChange);
+
   }
 
   componentUnWillMount() {
     BackHandler.removeEventListener('hardwareBackPress', this._onBackAndroid);
+    NetInfo.removeEventListener('connectionChange', this.handleFirstConnectivityChange);
+
   }
 
 
@@ -41,6 +45,23 @@ export default class App extends Component {
 
   }
 
+  handleFirstConnectivityChange = (connectionInfo) => {
+    let that = this;
+    console.log('网络事件监听, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+    if (connectionInfo.type == 'none') {
+      //没有网络
+      Toast.message('网络已断开，请检查网络连接！')
+    } else {
+      //有网络 
+      if (connectionInfo.type == 'wifi') {
+        Toast.message('当前网络状态为：' + connectionInfo.type)
+      } else {
+        //其他网络状态
+      }
+    }
+  }
+
+
 
   _getRef(ref) {
     NavigationService.setNavigator(ref);
@@ -53,7 +74,7 @@ export default class App extends Component {
         <Navigator
           ref={(ref) => this._getRef(ref)}
           onNavigationStateChange={(prevState, newState, action) => {
-            console.log(newState);
+            // console.log(newState);
             if (newState.routes[1].routes.length > 1) {
               BackHandler.removeEventListener('hardwareBackPress', this._onBackAndroid);
             } else {

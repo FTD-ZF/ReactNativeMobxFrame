@@ -42,6 +42,7 @@ import SDCountDownTimeLabel from './SDCountDownTimeLabel';
 import CusProgress from '../../commons/components/CusProgress';
 import { NavPages } from '../../root';
 import BaseComponent from './BaseComponent';
+import testStore from '../../mobx/testStore';
 // import ProgressBar from 'react-native-progress-bar';
 
 
@@ -56,7 +57,9 @@ export default class Index extends BaseComponent {
             </TouchableOpacity>
 
         ),
-        headerRight: (<View />)
+        headerRight: (<View />),
+        
+        
 
     });
 
@@ -100,8 +103,13 @@ export default class Index extends BaseComponent {
     }
 
     componentDidMount() {
-        // this.testStore.getListData();
-        Toast.message('' + StatusBar.currentHeight)
+        // testStore.getListData()
+        // Toast.message('' + StatusBar.currentHeight)
+
+       
+        // this.getNavProps().addListener((res) => {
+        //     console.log(res)
+        // })
     }
 
     _showToast() {

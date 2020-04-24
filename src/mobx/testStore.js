@@ -11,7 +11,19 @@ class TestStore {
 
     @action
     getListData() {
-        HttpUtils.getRequest('', '').then(response => {
+        // HttpUtils.getRequest('https://testgateway.cxjk.com/cxcm/interface/tCmchatAd/queryAdList').then(response => {
+        //     if (response.code == 200) {
+        //         console.log(JSON.stringify(response.result));
+        //         this.listdata = JSON.stringify(response.result);
+
+        //     }
+
+        // })
+        let params = {
+          
+            
+        }
+        HttpUtils.getRequest('', params).then(response => {
             if (response.code == 200) {
                 console.log(JSON.stringify(response.result));
                 this.listdata = JSON.stringify(response.result);

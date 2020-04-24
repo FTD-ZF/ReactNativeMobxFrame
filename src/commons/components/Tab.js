@@ -11,9 +11,14 @@ import {
     DeviceEventEmitter
 } from 'react-native';
 import { AppStyles, AppColors } from '../styles';
-import { isIphoneX } from 'react-native-iphone-x-helper'
+import { isIphoneX } from 'react-native-iphone-x-helper';
+import { Toast } from 'teaset';
 
 export default class Tab extends Component {
+
+
+    
+
     renderItem = (route, index) => {
         // console.log(index);
         const {
@@ -43,15 +48,31 @@ export default class Tab extends Component {
                 activeOpacity={0.8}
                 key={route.key}
                 style={styles.tabItem}
-                onPress={() => jumpTo(route.key)}>
+                onPress={() => this.onTabPress(route.key)}>
                 <View
                     style={styles.tabItem}>
-                    {this.props.renderIcon(TabScene)}
+                    <View>
+                        {this.props.renderIcon(TabScene)}
+                        {index == 2 ? <View style={{
+                            backgroundColor: 'red',
+                            width: 8, height: 8, borderRadius: 8, position: 'absolute', right: 0, top: 0
+                        }} /> : <View />}
+                    </View>
+
                     <Text style={{ ...styles.tabText, color }}>{this.props.getLabelText(TabScene)}</Text>
                 </View>
             </TouchableOpacity>
         );
     };
+
+
+    //底部tab切换
+    onTabPress(tabKey) {
+        const { navigation, jumpTo } = this.props;
+        Toast.message('tab的key===' + tabKey)
+        jumpTo(tabKey);
+    }
+
     render() {
         // console.log(this.props);
         const { navigation, jumpTo } = this.props;
@@ -77,7 +98,7 @@ export default class Tab extends Component {
                     left: (AppStyles.screen_width / 2) - 40, right: 0,
                     height: Platform.OS == 'ios' ? (isIphoneX() ? 100 : 80) : 80
                 }]}
-                onPress={() => jumpTo(routes[1].key)}>
+                onPress={() => this.onTabPress(routes[1].key)}>
                 <View
                     style={{
                         width: 80, height: 85, borderRadius: 50, backgroundColor: 'white',
