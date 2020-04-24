@@ -11,7 +11,7 @@ class TestStore {
 
     @action
     getListData() {
-        // HttpUtils.getRequest('https://testgateway.cxjk.com/cxcm/interface/tCmchatAd/queryAdList').then(response => {
+        // HttpUtils.getRequest('').then(response => {
         //     if (response.code == 200) {
         //         console.log(JSON.stringify(response.result));
         //         this.listdata = JSON.stringify(response.result);
