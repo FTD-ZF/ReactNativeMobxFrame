@@ -19,6 +19,9 @@ import { AppColors } from '../../../commons/styles/index';
 import TestComponent from './TestComponent';
 import { observer, inject } from "mobx-react";
 import BaseComponent from '../BaseComponent';
+import { NavPages, PageName } from '../../../root';
+import { SwitchActions, } from 'react-navigation';
+import NavigationService from '../../../commons/components/navigationService';
 
 
 @inject('rootStore')
@@ -75,9 +78,10 @@ export default class TwoPage extends BaseComponent {
     }
 
     _toChangeTxt() {
-        this.testStore.textname='123'
+        this.testStore.textname = '123'
     }
-  
+
+
     render() {
         return (
             <View style={styles.container}>
@@ -103,8 +107,10 @@ export default class TwoPage extends BaseComponent {
                 </Text>
                 </TouchableOpacity>
 
+
+
                 <TestComponent name={this.testStore.textname} />
-               
+
             </View>
         );
     }

@@ -58,8 +58,8 @@ export default class Index extends BaseComponent {
 
         ),
         headerRight: (<View />),
-        
-        
+
+
 
     });
 
@@ -106,10 +106,14 @@ export default class Index extends BaseComponent {
         // testStore.getListData()
         // Toast.message('' + StatusBar.currentHeight)
 
-       
+
         // this.getNavProps().addListener((res) => {
         //     console.log(res)
         // })
+
+       
+        
+
     }
 
     _showToast() {

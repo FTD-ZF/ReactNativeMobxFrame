@@ -44,7 +44,7 @@ export default class BaseComponent extends Component {
     }
 
     componentWillMount() {
-   
+        console.log('=======BaseComponent===========componentWillMount========')
     }
 
 
@@ -53,14 +53,17 @@ export default class BaseComponent extends Component {
     }
 
     componentDidMount() {
-
+        console.log('=======BaseComponent===========componentDidMount========')
 
     }
 
+
+    //进行设置导航的方法
     getNavProps() {
         return this.props.navigation
     }
 
+    //获取设置在导航中的方法
     getNavParams() {
         return this.props.navigation.state.params
     }
