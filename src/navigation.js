@@ -142,6 +142,16 @@ const Pages = {
         screen: PageName.DropDownView,
         navigationOptions: stackPageNavigationOptions
 
+    },
+    CusListView: {
+        screen: PageName.CusListView,
+        navigationOptions: stackPageNavigationOptions
+
+    },
+    DetailListView: {
+        screen: PageName.DetailListView,
+        navigationOptions: stackPageNavigationOptions
+
     }
 
 }

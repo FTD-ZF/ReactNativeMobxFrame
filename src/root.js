@@ -11,6 +11,8 @@ import FontAdapterPage from './pages/center/FontAdapter';
 import DragListItemPage from './pages/center/DragListItem';
 import TableView from './pages/center/Table';
 import DropDownView from './pages/center/DropDownView';
+import CusListView from './pages/center/CusListView';
+import DetailListView from './pages/center/CusListView/detailsList';
 
 
 
@@ -31,6 +33,8 @@ export const PageName = {
     DragListItemPage,
     TableView,
     DropDownView,
+    CusListView,
+    DetailListView,
 
 }
 
@@ -53,6 +57,7 @@ export const NavPages = {
     DragListItemPage: 'DragListItemPage',
     TableView: 'TableView',
     DropDownView: 'DropDownView',
-
+    CusListView: 'CusListView',
+    DetailListView: 'DetailListView',
 
 }

@@ -12,10 +12,12 @@ import {
     View,
     BackHandler,
     TouchableOpacity,
+    ScrollView,
 } from 'react-native';
 import { Toast } from 'teaset';
 import NavigationService from '../../commons/components/navigationService.js';
 import { NavPages } from '../../root.js';
+import BtnItemView from './components/BtnItemView.js';
 
 export default class Index extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -57,7 +59,6 @@ export default class Index extends Component {
     }
 
     _dragListItem() {
-
         NavigationService.navigate(NavPages.DragListItemPage);
     }
 
@@ -65,51 +66,62 @@ export default class Index extends Component {
         NavigationService.navigate(NavPages.TableView);
     }
 
-    _toDropDown(){
+    _toDropDown() {
         NavigationService.navigate(NavPages.DropDownView);
+    }
+
+    _toCusFlatList() {
+        NavigationService.navigate(NavPages.CusListView);
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                <TouchableOpacity style={{
-                    width: '100%', alignItems: 'center', paddingVertical: 20,
-                    backgroundColor: 'blue', marginTop: 10
-                }} onPress={() => this._toPlayVideo()}>
-                    <Text style={{ color: 'white', fontSize: 18 }}>视频播放</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: '100%', alignItems: 'center', paddingVertical: 20,
-                    backgroundColor: 'green', marginTop: 10
-                }} onPress={() => this._toPlaceHolder()}>
-                    <Text style={{ color: 'white', fontSize: 18 }}>骨架屏</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: '100%', alignItems: 'center', paddingVertical: 20,
-                    backgroundColor: 'yellow', marginTop: 10
-                }} onPress={() => this._toFontAdapter()}>
-                    <Text style={{ color: 'black', fontSize: 18 }}>字体，宽度，高度适配</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: '100%', alignItems: 'center', paddingVertical: 20,
-                    backgroundColor: 'yellow', marginTop: 10
-                }} onPress={() => this._dragListItem()}>
-                    <Text style={{ color: 'black', fontSize: 18 }}>item拖动，侧滑</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: '100%', alignItems: 'center', paddingVertical: 20,
-                    backgroundColor: 'gray', marginTop: 10
-                }} onPress={() => this._toTableView()}>
-                    <Text style={{ color: 'white', fontSize: 18 }}>表格布局</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: '100%', alignItems: 'center', paddingVertical: 20,
-                    backgroundColor: 'red', marginTop: 10
-                }} onPress={() => this._toDropDown()}>
-                    <Text style={{ color: 'black', fontSize: 18 }}>筛选</Text>
-                </TouchableOpacity>
+            <ScrollView style={styles.container}>
+                <View>
+                    <BtnItemView
+                        style={{ backgroundColor: 'blue', }}
+                        title={'视频播放'}
+                        txtStyle={{ color: 'white', }}
+                        onPress={() => this._toPlayVideo()} />
 
-            </View>
+                    <BtnItemView
+                        style={{ backgroundColor: 'green', }}
+                        title={'骨架屏'}
+                        txtStyle={{ color: 'white', }}
+                        onPress={() => this._toPlaceHolder()} />
+
+                    <BtnItemView
+                        style={{ backgroundColor: 'yellow', }}
+                        title={'字体，宽度，高度适配'}
+                        txtStyle={{ color: 'black', }}
+                        onPress={() => this._toFontAdapter()} />
+
+                    <BtnItemView
+                        style={{ backgroundColor: 'yellow', }}
+                        title={'item拖动，侧滑'}
+                        txtStyle={{ color: 'red', }}
+                        onPress={() => this._dragListItem()} />
+
+                    <BtnItemView
+                        style={{ backgroundColor: 'gray', }}
+                        title={'表格布局'}
+                        txtStyle={{ color: 'white', }}
+                        onPress={() => this._toTableView()} />
+
+                    <BtnItemView
+                        style={{ backgroundColor: 'red', }}
+                        title={'筛选'}
+                        txtStyle={{ color: 'black', }}
+                        onPress={() => this._toDropDown()} />
+
+                    <BtnItemView
+                        style={{ backgroundColor: 'blue', }}
+                        title={'FlatList再封装'}
+                        txtStyle={{ color: 'black', }}
+                        onPress={() => this._toCusFlatList()} />
+
+                </View>
+            </ScrollView>
         );
     }
 
@@ -118,8 +130,7 @@ export default class Index extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#f7f8f8',
     },
 
 });
