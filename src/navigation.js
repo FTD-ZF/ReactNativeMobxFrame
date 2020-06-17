@@ -152,7 +152,24 @@ const Pages = {
         screen: PageName.DetailListView,
         navigationOptions: stackPageNavigationOptions
 
-    }
+    },
+    ChatIndex: {
+        screen: PageName.ChatIndex,
+        navigationOptions: stackPageNavigationOptions
+
+    },
+    ChatListView: {
+        screen: PageName.ChatListView,
+        navigationOptions: stackPageNavigationOptions
+
+    },
+    ChatDetailsView: {
+        screen: PageName.ChatDetailsView,
+        navigationOptions: stackPageNavigationOptions
+
+    },
+    
+    
 
 }
 

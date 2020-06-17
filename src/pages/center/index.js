@@ -74,6 +74,10 @@ export default class Index extends Component {
         NavigationService.navigate(NavPages.CusListView);
     }
 
+    _toChatIM() {
+        NavigationService.navigate(NavPages.ChatIndex);
+    }
+
     render() {
         return (
             <ScrollView style={styles.container}>
@@ -119,6 +123,12 @@ export default class Index extends Component {
                         title={'FlatList再封装'}
                         txtStyle={{ color: 'black', }}
                         onPress={() => this._toCusFlatList()} />
+
+                    <BtnItemView
+                        style={{ backgroundColor: 'gray', }}
+                        title={'网易云信即时聊天模块'}
+                        txtStyle={{ color: 'white', }}
+                        onPress={() => this._toChatIM()} />
 
                 </View>
             </ScrollView>

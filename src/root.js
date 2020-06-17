@@ -13,8 +13,9 @@ import TableView from './pages/center/Table';
 import DropDownView from './pages/center/DropDownView';
 import CusListView from './pages/center/CusListView';
 import DetailListView from './pages/center/CusListView/detailsList';
-
-
+import ChatIndex from './pages/center/ChatPage';
+import ChatListView from './pages/center/ChatPage/chatList';
+import ChatDetailsView from './pages/center/ChatPage/chatDetails';
 
 /**
  * 页面添加时使用该值
@@ -35,7 +36,9 @@ export const PageName = {
     DropDownView,
     CusListView,
     DetailListView,
-
+    ChatIndex,
+    ChatListView,
+    ChatDetailsView,
 }
 
 
@@ -59,5 +62,7 @@ export const NavPages = {
     DropDownView: 'DropDownView',
     CusListView: 'CusListView',
     DetailListView: 'DetailListView',
-
+    ChatIndex: 'ChatIndex',
+    ChatListView: 'ChatListView',
+    ChatDetailsView: 'ChatDetailsView',
 }

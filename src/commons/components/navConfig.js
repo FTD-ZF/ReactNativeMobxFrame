@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image, TouchableOpacity, Text, StatusBar } from 'react-native';
 // import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 import { AppColors, AppStyles } from '../styles/index';
+import NavBackButton from './NavBackButton';
 
 const activeTabColor = '#38ADFF';// 底部文字和图片选中颜色
 const defaultTabColor = '#949494';//文字和图片未选中颜色
@@ -10,9 +11,8 @@ const headerOptions = props => {
     const { navigation, navigationOptions, visible = true, back = true, right = false, onRightPress } = props
     const { goBack } = navigation
     const headerLeft = back ? (
-        <TouchableOpacity onPress={() => goBack(null)}>
-            <Image source={require('../../assets/imgs/arrow.png')} style={{ width: 30, height: 30 }} />
-        </TouchableOpacity>
+
+        <NavBackButton onPress={() => goBack(null)} />
 
     ) : (<View />)
     const headerRight = right ? (
