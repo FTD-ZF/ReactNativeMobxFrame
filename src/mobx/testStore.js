@@ -25,6 +25,9 @@ class TestStore {
     @observable listEndPageStatusSecond = false;
     @observable totalPagesSecond = 1;
 
+
+    @observable tabStatus = 1;
+
     @action
     resetListData() {
         this.currentPage = 1;

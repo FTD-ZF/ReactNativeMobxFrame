@@ -42,7 +42,7 @@ const timeoutFetch = (original_fetch, timeout = 30000) => {
     let timeout_promise = new Promise((resolve, reject) => {
         timeoutBlock = () => {
             // 请求超时处理
-            reject('timeout promise')
+            reject('请求超时，请稍后再试')
         }
     })
 

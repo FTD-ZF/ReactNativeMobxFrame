@@ -18,6 +18,7 @@ import { Toast } from 'teaset';
 import NavigationService from '../../commons/components/navigationService.js';
 import { NavPages } from '../../root.js';
 import BtnItemView from './components/BtnItemView.js';
+import { screen, aHeight } from '../../commons/utils/screenUtils.js';
 
 export default class Index extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -130,6 +131,10 @@ export default class Index extends Component {
                         txtStyle={{ color: 'white', }}
                         onPress={() => this._toChatIM()} />
 
+
+
+
+                    <View style={{ width: screen.width, height: aHeight(50) }} />
                 </View>
             </ScrollView>
         );

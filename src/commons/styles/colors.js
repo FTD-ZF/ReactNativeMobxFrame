@@ -12,6 +12,7 @@ const AppColors = {
     themecolor: '#38ADFF',
     bgcolor: '#dddddd',
     lightGray: '#F5F5F5',
+    transparent: '#00000000',
 };
 
 

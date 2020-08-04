@@ -17,13 +17,14 @@ import { Toast } from 'teaset';
 export default class Tab extends Component {
 
 
-    
+
 
     renderItem = (route, index) => {
         // console.log(index);
         const {
             navigation,
             jumpTo,
+            labelStyle,
         } = this.props;
 
         const focused = index === navigation.state.index;
@@ -52,14 +53,14 @@ export default class Tab extends Component {
                 <View
                     style={styles.tabItem}>
                     <View>
-                        {this.props.renderIcon(TabScene)}
+                        {this.props.showIcon ? this.props.renderIcon(TabScene) : null}
                         {index == 2 ? <View style={{
                             backgroundColor: 'red',
                             width: 8, height: 8, borderRadius: 8, position: 'absolute', right: 0, top: 0
                         }} /> : <View />}
                     </View>
 
-                    <Text style={{ ...styles.tabText, color }}>{this.props.getLabelText(TabScene)}</Text>
+                    <Text style={[{ ...styles.tabText, color }, labelStyle]}>{this.props.getLabelText(TabScene)}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -75,7 +76,7 @@ export default class Tab extends Component {
 
     render() {
         // console.log(this.props);
-        const { navigation, jumpTo } = this.props;
+        const { navigation, jumpTo, labelStyle } = this.props;
         const { routes, } = navigation.state;
         const focused = 1 === navigation.state.index;
         const color = focused ? this.props.activeTintColor : this.props.inactiveTintColor;
@@ -105,8 +106,8 @@ export default class Tab extends Component {
                         justifyContent: 'center', alignItems: 'center',
                         bottom: Platform.OS == 'ios' ? (isIphoneX() ? 10 : 0) : 0,
                     }}>
-                    {this.props.renderIcon(TabScene)}
-                    <Text style={{ ...styles.tabText, color }}>{this.props.getLabelText(TabScene)}</Text>
+                    {this.props.showIcon ? this.props.renderIcon(TabScene) : null}
+                    <Text style={[{ ...styles.tabText, color }, labelStyle]}>{this.props.getLabelText(TabScene)}</Text>
                 </View>
             </TouchableOpacity>
         </View>);

@@ -168,8 +168,8 @@ const Pages = {
         navigationOptions: stackPageNavigationOptions
 
     },
-    
-    
+
+
 
 }
 

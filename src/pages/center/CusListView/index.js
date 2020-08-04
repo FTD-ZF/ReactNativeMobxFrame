@@ -33,6 +33,7 @@ import CusFlatListView from './components/CusFlatListView';
 import BaseComponent from '../../home/BaseComponent';
 import NavigationService from '../../../commons/components/navigationService';
 import { NavPages } from '../../../root';
+import TabTwiceView from './components/TabTwiceView';
 
 
 /**
@@ -50,12 +51,12 @@ export default class Index extends BaseComponent {
         super(props)
 
         this.state = {
-
+            tabStatus: 1
         }
     }
 
     componentDidMount() {
-        testStore.resetListData();
+        // testStore.resetListData();
     }
 
 
@@ -74,6 +75,39 @@ export default class Index extends BaseComponent {
         NavigationService.navigate(NavPages.DetailListView)
     }
 
+
+    //tab切换
+    getChangeStatus(value) {
+        console.log('====tabStatus==========' + value)
+        console.log(this.scrollview)
+        testStore.tabStatus = value;
+    }
+
+    leftPress() {
+        testStore.tabStatus = 1
+        // console.log('====tabStatus==========' + value)
+        // console.log(this.scrollview)
+        this.setState({
+            tabStatus: 1,
+        }, () => {
+            this._toScroll()
+        })
+    }
+    _toScroll() {
+        // this.scrollview.scrollResponderHandleTouchEnd();
+        this.scrollview.scrollTo({ x: 0, y: 600, animated: true });
+        console.log(this.scrollview)
+    }
+
+    rightPress() {
+        testStore.tabStatus = 2
+        this.setState({
+            tabStatus: 2
+        })
+    }
+
+
+
     _renderItem = (item) => {
         return (
             <TouchableOpacity style={{ height: 600 }} onPress={() => this._toDetailListView()} >
@@ -82,8 +116,20 @@ export default class Index extends BaseComponent {
         )
     }
 
-    render() {
 
+    _toRenderLeftView() {
+
+        return (
+            <ScrollView
+                ref={(ref) => this.scrollview = ref}>
+
+                <View style={{ height: aHeight(600), width: screen.width, backgroundColor: 'red' }} />
+            </ScrollView>
+        )
+    }
+
+    render() {
+        const { tabStatus } = this.state;
         return (
 
             /**
@@ -96,15 +142,39 @@ export default class Index extends BaseComponent {
              * listEndPageStatus-底部布局根据数据 是否显示不同-默认false
              */
 
-            <CusFlatListView
-                requestRefreshData={() => this._toRefreshRequest()}
-                requestLoadData={(currentPage) => this._toLoadRequest(currentPage)}
-                listData={testStore.listData}
-                renderItem={this._renderItem}
-                totalPages={testStore.totalPages}
-                refreshStatus={testStore.refreshStatus}
-                listEndPageStatus={testStore.listEndPageStatus} />
+            <View>
 
+                {/* 
+                <TabTwiceView
+                    leftPress={() => this.leftPress()}
+                    rightPress={() => this.rightPress()}
+                    boolShow={tabStatus == 1 ? true : false}
+                getChangeStatus={(value) => this.getChangeStatus(value)}
+                /> */}
+
+
+                {/* {tabStatus == 1 ? <View>
+                    <ScrollView
+                        ref={(ref) => this.scrollview = ref}>
+
+
+                        <View style={{ height: aHeight(600), width: screen.width, backgroundColor: 'red' }} />
+                        <View style={{ height: 400, width: screen.width, backgroundColor: 'yellow' }} />
+                    </ScrollView>
+                </View> : */}
+                <CusFlatListView
+                    requestRefreshData={() => this._toRefreshRequest()}
+                    requestLoadData={(currentPage) => this._toLoadRequest(currentPage)}
+                    listData={testStore.listData}
+                    renderItem={this._renderItem}
+                    totalPages={testStore.totalPages}
+                    refreshStatus={testStore.refreshStatus}
+                    listEndPageStatus={testStore.listEndPageStatus} />
+                {/* <View style={{ backgroundColor: 'blue', width: screen.width, height: 600 }} />
+                 } */}
+
+
+            </View>
         );
     }
 }
