@@ -25,6 +25,10 @@
 ##### 目前RN端IM的第三方组件的维护力度不是很大，还需努力前行。
 
 
-### [安卓下载地址](http://d.6short.com/npgd)
+### 新增sentry和bugly组件
+##### sentry组件是用于捕获RN导致的崩溃错误；bugly组件主要用于Android端的更新
+
+
+### [安卓下载地址](https://www.pgyer.com/nV2E)
 
 ![](android_download.jpg)
