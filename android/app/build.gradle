@@ -73,16 +73,18 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-        entryFile: "index.js"
+//        enableHermes: false,  // clean and rebuild if changing
+        entryFile: "index.js",
+
 ]
-project.ext.sentryCli = [
-        logLevel: "debug",
-        flavorAware: true
-]
+//project.ext.sentryCli = [
+//        logLevel   : "debug",
+//        flavorAware: true
+//]
 
 
 apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/@sentry/react-native/sentry.gradle"
+//apply from: "../../node_modules/@sentry/react-native/sentry.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -117,7 +119,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         multiDexEnabled true
     }
     splits {
@@ -159,15 +161,15 @@ android {
             }
         }
     }
-
-
-    dexOptions {
-        preDexLibraries true
-        maxProcessCount 8
-        javaMaxHeapSize "4g"
-        // Instead of setting the heap size for the DEX process, increase Gradle's
-        // heap size to enable dex-in-process.
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
+
+
+
 }
 
 dependencies {
@@ -189,6 +191,8 @@ dependencies {
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
     implementation project(':@sentry_react-native')
+    implementation project(':rn-bugly')
+
 
 }
 

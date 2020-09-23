@@ -10,6 +10,8 @@ import com.brentvatne.react.ReactVideoPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.reactlibrary.bugly.RNBuglyModule;
+import com.reactlibrary.bugly.RNBuglyPackage;
 import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
@@ -49,7 +51,8 @@ public class MainApplication extends Application implements ReactApplication {
                     new ReactNativeAudioPackage(),
                     new ImagePickerPackage(),
                     new VectorIconsPackage(),
-                    new RNSentryPackage()
+                    new RNSentryPackage(),
+                    new RNBuglyPackage()
             );
         }
 
@@ -68,7 +71,8 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
-
+        RNBuglyModule.init(getApplicationContext(),"5e06b454c9",false);
+//        RNBuglyModule.initWithoutAutoCheckUpgrade(getApplicationContext(),"5e06b454c9",false);
     }
 
     @Override

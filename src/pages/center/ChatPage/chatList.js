@@ -127,9 +127,11 @@ export default class ChatListView extends BaseComponent {
                     item.name = util.getFriendAlias(userInfos[item.to]);
                     item.avatar = util.genAvatar(userInfos[item.to].avatar || 'https://yx-web.nos-hz.163yun.com/webdoc/h5/im/default-icon.png');
                 } else {
-                    this.props.userInfo.getUserInfo(item.to, () => {
-                        this.forceUpdate();
-                    });
+                    if(this.props.userInfo){
+                        this.props.userInfo.getUserInfo(item.to, () => {
+                            this.forceUpdate();
+                        });
+                    } 
                 }
             } else {
                 console.log('======team=========item')
