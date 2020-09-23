@@ -1,0 +1,55 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '10.0'
+
+target 'ReactNativeMobxFrame' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for ReactNativeMobxFrame
+
+
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge', # 如果RN版本 >= 0.47则加入此行
+    'DevSupport', # 如果RN版本 >= 0.43，则需要加入此行才能开启开发者菜单
+    'RCTText',
+    'RCTImage',
+    'tvOS',
+    'RCTNetwork',
+    'RCTWebSocket', # 调试功能需要此模块
+    'RCTAnimation', # FlatList和原生动画功能需要此模块
+    # 在这里继续添加你所需要的其他RN模块
+  ]
+  # 如果你的RN版本 >= 0.42.0，则加入下面这行
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  # 如果RN版本 >= 0.45则加入下面三个第三方编译依赖
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'RNSentry', :podspec => '../node_modules/@sentry/react-native/RNSentry.podspec'
+  pod 'RNBugly', :podspec => '../node_modules/rn-bugly/RNBugly.podspec'
+  
+  pod 'boost-for-react-native', :git => 'https://gitee.com/damon-s/boost-for-react-native.git’
+
+
+  target 'ReactNativeMobxFrameTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "React"
+      target.remove_from_project
+    end
+    if target.name == "yoga"
+      target.remove_from_project
+    end
+  end
+end

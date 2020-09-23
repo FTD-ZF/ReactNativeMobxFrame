@@ -1,6 +1,8 @@
 package com.reactnativemobxframe;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.facebook.react.ReactApplication;
 import com.github.yamill.orientation.OrientationPackage;
@@ -11,7 +13,6 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
-import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -23,6 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.realm.react.RealmReactPackage;
+import io.sentry.RNSentryPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -41,13 +43,13 @@ public class MainApplication extends Application implements ReactApplication {
                     new LinearGradientPackage(),
                     new ReactSliderPackage(),
                     new RNCViewPagerPackage(),
-                    new ReanimatedPackage(),
                     new RNGestureHandlerPackage(),
                     new RealmReactPackage(),
                     new RNSoundPackage(),
                     new ReactNativeAudioPackage(),
                     new ImagePickerPackage(),
-                    new VectorIconsPackage()
+                    new VectorIconsPackage(),
+                    new RNSentryPackage()
             );
         }
 
@@ -66,5 +68,12 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
+
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

@@ -14,14 +14,22 @@ import { Toast } from 'teaset';
 import { Provider } from 'mobx-react';
 import rootStore from './src/mobx/index';
 import NavigationService from './src/commons/components/navigationService';
-
+import * as Sentry from '@sentry/react-native';
 
 export default class App extends Component {
 
   componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid);
     NetInfo.addEventListener('connectionChange', this.handleFirstConnectivityChange);
+    Sentry.init({
+      dsn: 'https://d7a3686f20e441d9957572fa8486f187@o430533.ingest.sentry.io/5379271',
+    });
 
+    // Sentry.setTag("myTag", "tag-value");
+    // Sentry.setExtra("myExtra", "extra-value");
+    // Sentry.addBreadcrumb({ message: "test" });
+
+    Sentry.captureMessage("wwwwwwn你好!");
   }
 
   componentUnWillMount() {
