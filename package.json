@@ -45,7 +45,7 @@
     "react-native-progress": "^3.6.0",
     "react-native-progress-bar": "^0.1.2",
     "react-native-progress-bar-animated": "^1.0.6",
-    "react-native-reanimated": "^1.0.0",
+    "react-native-reanimated": "^2.10.0",
     "react-native-screens": "^2.8.0",
     "react-native-scrollable-tab-view": "^0.10.0",
     "react-native-shimmer-placeholder": "^1.0.35",
